@@ -23,7 +23,7 @@ class OrderController extends Controller
             return response()->json(['message' => 'Cart is empty'], 400);
         }
 
-        \DB::beginTransaction();
+        DB::beginTransaction();
 
         try {
             $total = 0;
@@ -35,6 +35,7 @@ class OrderController extends Controller
                 'total_price' => $cart->total,
                 'status' => 'pending'
             ]);
+
 
             foreach ($cart->items as $cartItem) {
                 $product = Product::findOrFail($cartItem->product_id);
@@ -51,19 +52,20 @@ class OrderController extends Controller
                     'price' => $product->price,
                 ]);
                 // Reduce stock
-                $product->decrement('stock', $qty);
+                if($request->payment_method == 'cash')
+                    $product->decrement('stock', $qty);
             }
-
 
             // Clear cart
             $cart->items()->delete();
             $cart->total = 0;
 
-            \DB::commit();
+            DB::commit();
 
-            return new OrderResource($order->load('items') );
+            return $this->getOrderData($order);
+
         } catch (\Exception $e) {
-            \DB::rollBack();
+            DB::rollBack();
             return response()->json(['error' => $e->getMessage()], 400);
         }
     }
@@ -105,25 +107,12 @@ class OrderController extends Controller
                 ]
             );
 
-            $product->decrement('stock', $request['quantity']);
+            if($request->payment_method == 'cash')
+                $product->decrement('stock', $request['quantity']);
 
             DB::commit();
-            if($order->payment_method == 'card'){
-               $url =  route('payment.process', ['order_id' => $order->id]);
 
-                return response()->json([
-                    'message' => 'Order created',
-                    'order_id' => $order->id,
-                    'payment_url' => $url,
-                    'data' => new OrderResource($order->load('items'))
-                ], 201);
-            }
-
-            return response()->json([
-                'message' => 'Order created',
-                'data' => new OrderResource($order->load('items'))
-            ]);
-
+            return $this->getOrderData($order);
 
         } catch (\Exception $e) {
             DB::rollBack();
@@ -131,6 +120,23 @@ class OrderController extends Controller
         }
     }
 
+    private function getOrderData(Order $order){
+        if($order->payment_method == 'card'){
+            $url =  route('payment.process', ['order_id' => $order->id]);
+
+            return response()->json([
+                'message' => 'Order created',
+                'order_id' => $order->id,
+                'payment_url' => $url,
+                'data' => new OrderResource($order->load('items'))
+            ], 201);
+        }
+
+        return response()->json([
+            'message' => 'Order created',
+            'data' => new OrderResource($order->load('items'))
+        ]);
+    }
 
     public function index()
     {

@@ -57,5 +57,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/orders/from-cart', [OrderController::class, 'placeOrderFromCart']);
 });
 
-Route::post('/payment/process', [PaymentController::class, 'paymentProcess']);
+Route::match(['POST', 'GET'],'/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
 Route::match(['GET','POST'],'/payment/callback', [PaymentController::class, 'callBack']);

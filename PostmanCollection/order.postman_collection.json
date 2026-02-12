@@ -1,0 +1,294 @@
+{
+  "info": {
+    "_postman_id": "2c302351-0f17-4c93-8673-3adddd1a7c93",
+    "name": "order",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47170046",
+    "_collection_link": "https://go.postman.co/collection/47170046-2c302351-0f17-4c93-8673-3adddd1a7c93?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "store order",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "y3mFTdoofWUHykgkHJnOaYdmAOjF047r5aC2jkXof6f882c4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "9b5b4379-2760-40ee-807d-872873cd64ac"
+            },
+            {
+              "key": "quantity",
+              "value": "1",
+              "type": "text",
+              "uuid": "922f94c2-0cd5-434e-b5cb-4af61e474cce"
+            },
+            {
+              "key": "address",
+              "value": "minia-maghagha",
+              "type": "text",
+              "uuid": "76570d4d-a846-4673-baa3-a338870de96e"
+            },
+            {
+              "key": "payment_method",
+              "value": "card",
+              "type": "text",
+              "uuid": "4e270b23-bb4e-451e-ba1f-4a5fb57250d2"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/orders",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "show orders",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "HE0Am9SBS8cZM0XfTH9yZTb6TTkI4vHdTGGwkYZa3403957e",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "9b5b4379-2760-40ee-807d-872873cd64ac",
+              "disabled": true
+            },
+            {
+              "key": "quantity",
+              "value": "2",
+              "type": "text",
+              "uuid": "922f94c2-0cd5-434e-b5cb-4af61e474cce",
+              "disabled": true
+            },
+            {
+              "key": "address",
+              "value": "minia-maghagha",
+              "type": "text",
+              "uuid": "76570d4d-a846-4673-baa3-a338870de96e",
+              "disabled": true
+            },
+            {
+              "key": "payment_method",
+              "value": "cash",
+              "type": "text",
+              "uuid": "4e270b23-bb4e-451e-ba1f-4a5fb57250d2",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/orders",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "order cart",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "HE0Am9SBS8cZM0XfTH9yZTb6TTkI4vHdTGGwkYZa3403957e",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "9b5b4379-2760-40ee-807d-872873cd64ac",
+              "disabled": true
+            },
+            {
+              "key": "quantity",
+              "value": "2",
+              "type": "text",
+              "uuid": "922f94c2-0cd5-434e-b5cb-4af61e474cce",
+              "disabled": true
+            },
+            {
+              "key": "address",
+              "value": "minia-maghagha",
+              "type": "text",
+              "uuid": "76570d4d-a846-4673-baa3-a338870de96e"
+            },
+            {
+              "key": "payment_method",
+              "value": "card",
+              "type": "text",
+              "uuid": "4e270b23-bb4e-451e-ba1f-4a5fb57250d2"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/orders/from-cart",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "orders",
+            "from-cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete order",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "Bt3Ll8xAi93wBlqRjux2bm9HK6jIXg7HpcRaJTH33db053a3",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/orders/2",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "orders",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ship the order",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "Bt3Ll8xAi93wBlqRjux2bm9HK6jIXg7HpcRaJTH33db053a3",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/orders/18/ship",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "orders",
+            "18",
+            "ship"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

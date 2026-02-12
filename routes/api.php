@@ -53,22 +53,22 @@ Route::apiResource('categories', CategoryController::class)
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/orders', [OrderController::class, 'index']);
     Route::get('/orders/{id}', [OrderController::class, 'show']);
-
     Route::post('/orders', [OrderController::class, 'store']);
     Route::post('/orders/from-cart', [OrderController::class, 'placeOrderFromCart']);
+    Route::middleware(['role:admin'])->group(function () {
+        Route::delete('/orders/{id}', [OrderController::class, 'destroy']);
+        Route::patch('/orders/{id}/ship', [OrderController::class, 'markAsShipped']);
+    });
+
 });
 
 Route::match(['POST', 'GET'],'/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
 Route::match(['GET','POST'],'/payment/callback', [PaymentController::class, 'callBack']);
 
-// Upload single image for a product
-Route::post('/products/images', [ProductImageController::class, 'upload']);
+Route::group(['middleware' => 'auth:sanctum', 'role:admin'], function () {
+    Route::post('/products/images', [ProductImageController::class, 'upload']);
+    Route::post('/products/images/multiple', [ProductImageController::class, 'uploadMultiple']);
+    Route::put('/product-images', [ProductImageController::class, 'update']);
+    Route::delete('/product-images/{productImage}', [ProductImageController::class, 'destroy']);
+});
 
-// Upload multiple images for a product
-Route::post('/products/images/multiple', [ProductImageController::class, 'uploadMultiple']);
-
-// Update an image
-Route::put('/product-images', [ProductImageController::class, 'update']);
-
-// Delete an image
-Route::delete('/product-images/{productImage}', [ProductImageController::class, 'destroy']);

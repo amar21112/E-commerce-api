@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "99918b18-bbd1-4b85-a95e-6f38f4db4e0d",
+    "name": "product image",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47170046",
+    "_collection_link": "https://go.postman.co/collection/47170046-99918b18-bbd1-4b85-a95e-6f38f4db4e0d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "upload image",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "8Ck4pyRCIfnPFaR8sDpw10hrvmeoS36NzdjBILnT4c66e7e8",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_id",
+              "value": "5",
+              "type": "text",
+              "uuid": "dde13e4c-6199-4b07-bd8d-1aeec5657c00"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "3f128edd-132d-4d6f-856f-bc1e4d5c3469",
+              "src": "/C:/Users/DELL/Pictures/Screenshots/ECommmerce.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/products/images",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "products",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "multiple image upload",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "dde13e4c-6199-4b07-bd8d-1aeec5657c00"
+            },
+            {
+              "key": "images[]",
+              "type": "file",
+              "uuid": "3f128edd-132d-4d6f-856f-bc1e4d5c3469",
+              "src": "/C:/Users/DELL/Pictures/Screenshots/photo_2024-05-06_17-07-33 (2).jpg"
+            },
+            {
+              "key": "images[]",
+              "type": "file",
+              "uuid": "30102509-c165-4d60-b0dd-f846fb78ad5d",
+              "src": "/C:/Users/DELL/Pictures/Screenshots/ECommmerce.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/products/images/multiple",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "products",
+            "images",
+            "multiple"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete product image",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/product-images/3",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "product-images",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update image",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_image_id",
+              "value": "7",
+              "type": "text",
+              "uuid": "dde13e4c-6199-4b07-bd8d-1aeec5657c00"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "3f128edd-132d-4d6f-856f-bc1e4d5c3469",
+              "src": "/C:/Users/DELL/Pictures/Screenshots/photo_2024-05-06_17-07-33 (2).jpg"
+            },
+            {
+              "key": "_method",
+              "value": "PUT",
+              "type": "text",
+              "uuid": "f5a7b2fe-2ebc-4109-bcda-1d1bb5d4ec20"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/product-images",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "product-images"
+          ],
+          "query": [
+            {
+              "key": "product_image_id",
+              "value": "3",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -151,4 +151,68 @@ class OrderController extends Controller
         $order = Order::with('items')->where('user_id', auth()->id())->findOrFail($id);
         return new OrderResource($order);
     }
+
+    public function destroy($id)
+    {
+        $order = Order::findOrFail($id);
+
+        // Optional: prevent deleting paid/shipped orders
+        if (in_array($order->status, ['paid', 'shipped'])) {
+            return response()->json([
+                'error' => 'Cannot delete a paid or shipped order'
+            ], 403);
+        }
+
+        $order = Order::with('items.product')->findOrFail($id);
+
+        if (in_array($order->status, ['paid', 'shipped'])) {
+            return response()->json(['error' => 'Cannot delete paid/shipped order'], 403);
+        }
+
+        DB::beginTransaction();
+
+        try {
+            // Restore stock
+            foreach ($order->items as $item) {
+                $item->product->increment('stock', $item->quantity);
+            }
+
+            // Delete items first
+            $order->items()->delete();
+
+            // Delete order
+            $order->delete();
+
+            DB::commit();
+
+            return response()->json(['message' => 'Order & items deleted']);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Mark order as shipped
+     */
+    public function markAsShipped($id)
+    {
+        $order = Order::findOrFail($id);
+
+        if ( $order->payment_method !=='cash' && $order->status !== 'paid') {
+            return response()->json([
+                'error' => 'Only paid orders can be shipped'
+            ], 400);
+        }
+
+        $order->update([
+            'status' => 'shipped'
+        ]);
+
+        return response()->json([
+            'message' => 'Order marked as shipped',
+            'data' => $order
+        ]);
+    }
 }

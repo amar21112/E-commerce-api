@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "3ae7ad5d-7bd3-451b-b1b6-71b765b4e662",
+    "name": "user auth",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47170046",
+    "_collection_link": "https://go.postman.co/collection/47170046-3ae7ad5d-7bd3-451b-b1b6-71b765b4e662?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "cust",
+              "type": "text",
+              "uuid": "66c8ad33-eeb7-41c0-b422-ef7007b7b7c2"
+            },
+            {
+              "key": "email",
+              "value": "test1@email.com",
+              "type": "text",
+              "uuid": "2ea1eaf1-e6b3-45df-bc2a-75bd378aa0c1"
+            },
+            {
+              "key": "password",
+              "value": "secret",
+              "type": "text",
+              "uuid": "d59b78ad-7359-45d7-ac4a-e0507fdd643f"
+            },
+            {
+              "key": "phone",
+              "value": "01923456781",
+              "type": "text",
+              "uuid": "da2348b3-49a8-4b7b-a103-63fa58a41e36"
+            },
+            {
+              "key": "password_confirmation",
+              "value": "secret",
+              "type": "text",
+              "uuid": "02b17699-60f8-41db-8564-20e8a6f9f55d"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/register",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "admin@example.com",
+              "type": "text",
+              "uuid": "369d6a9c-4820-48fc-b3b3-7f70865c2c7a"
+            },
+            {
+              "key": "password",
+              "value": "secret",
+              "type": "text",
+              "uuid": "58d42b39-a0e5-4a4a-9923-351f5a226d1c"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "logout",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "4|nsLMczxy9os6gDTFMZY1zG2eiPuL5A4PC5QtgF4cd4901158",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/logout",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

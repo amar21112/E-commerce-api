@@ -1,0 +1,297 @@
+{
+  "info": {
+    "_postman_id": "de01bb5f-0cef-40e7-b2b4-1b0549018512",
+    "name": "products",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47170046",
+    "_collection_link": "https://go.postman.co/collection/47170046-de01bb5f-0cef-40e7-b2b4-1b0549018512?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "store Product",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "b5d0NHAF7KZgFN2YkB0n1YnQ2XlwSurjSiXo7wj032846576",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "10",
+              "type": "text",
+              "uuid": "07e236b6-3dd1-4531-a738-175e486095c0"
+            },
+            {
+              "key": "price",
+              "value": "100",
+              "type": "text",
+              "uuid": "0fbb3476-e9f5-4b3f-b5be-62891a90ddbc"
+            },
+            {
+              "key": "description",
+              "value": "product 1 description",
+              "type": "text",
+              "uuid": "a4c48e62-3bc6-4982-88bd-014b62ecd978"
+            },
+            {
+              "key": "stock",
+              "value": "10",
+              "type": "text",
+              "uuid": "15b040d4-28aa-4e87-92e4-f8234a0d18a5"
+            },
+            {
+              "key": "category_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "7a593bd7-7f9e-43e1-91f6-20e3d7349dbc"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/products",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "show product",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "b5d0NHAF7KZgFN2YkB0n1YnQ2XlwSurjSiXo7wj032846576",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/products/5",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "products",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update product",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ZOqT0RQvonTRTkdP2BfDrVcwYqe8nvwcOu3IwEOV7bc6711f",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "_method",
+              "value": "PATCH",
+              "type": "text",
+              "uuid": "07e236b6-3dd1-4531-a738-175e486095c0"
+            },
+            {
+              "key": "price",
+              "value": "150",
+              "type": "text",
+              "uuid": "0fbb3476-e9f5-4b3f-b5be-62891a90ddbc",
+              "disabled": true
+            },
+            {
+              "key": "description",
+              "value": "product 1 description",
+              "type": "text",
+              "uuid": "a4c48e62-3bc6-4982-88bd-014b62ecd978",
+              "disabled": true
+            },
+            {
+              "key": "stock",
+              "value": "100",
+              "type": "text",
+              "uuid": "15b040d4-28aa-4e87-92e4-f8234a0d18a5"
+            },
+            {
+              "key": "category_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "7a593bd7-7f9e-43e1-91f6-20e3d7349dbc",
+              "disabled": true
+            },
+            {
+              "key": "name",
+              "value": "product190",
+              "type": "text",
+              "uuid": "7f447b25-7556-4b93-947e-cf09d964548a",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/products/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "products",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete product",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "8iTvdYOYbznH8RP0Fe4SyYX7fAVMrOmnMwGaAUsZ5f6dd88f",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "product1",
+              "type": "text",
+              "uuid": "07e236b6-3dd1-4531-a738-175e486095c0",
+              "disabled": true
+            },
+            {
+              "key": "price",
+              "value": "100",
+              "type": "text",
+              "uuid": "0fbb3476-e9f5-4b3f-b5be-62891a90ddbc",
+              "disabled": true
+            },
+            {
+              "key": "description",
+              "value": "product 1 description",
+              "type": "text",
+              "uuid": "a4c48e62-3bc6-4982-88bd-014b62ecd978",
+              "disabled": true
+            },
+            {
+              "key": "stock",
+              "value": "10",
+              "type": "text",
+              "uuid": "15b040d4-28aa-4e87-92e4-f8234a0d18a5",
+              "disabled": true
+            },
+            {
+              "key": "category_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "7a593bd7-7f9e-43e1-91f6-20e3d7349dbc",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/products/2",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "products",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

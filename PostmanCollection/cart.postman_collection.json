@@ -1,0 +1,218 @@
+{
+  "info": {
+    "_postman_id": "d8d7de9f-dd7e-4cbd-aecf-747e2245038e",
+    "name": "cart",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47170046",
+    "_collection_link": "https://go.postman.co/collection/47170046-d8d7de9f-dd7e-4cbd-aecf-747e2245038e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "show cart item",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "HE0Am9SBS8cZM0XfTH9yZTb6TTkI4vHdTGGwkYZa3403957e",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/cart",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "5|KUotqwhIqt1EsCXuAWU06awyhIxFNvGSaDRSlLxqd5e904e6",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "id",
+              "value": "1",
+              "type": "text",
+              "uuid": "fd20491c-c693-467c-902b-ce2c031f1128",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/cart/item/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "cart",
+            "item",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add items",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "HE0Am9SBS8cZM0XfTH9yZTb6TTkI4vHdTGGwkYZa3403957e",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_id",
+              "value": "5",
+              "type": "text",
+              "uuid": "16a7756f-9a26-4258-8854-12dffb6c6b76"
+            },
+            {
+              "key": "quantity",
+              "value": "3",
+              "type": "text",
+              "uuid": "83128104-054b-4360-8695-e2cbf4d27d6c"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/cart",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "KKFs8dLiz24l3YyZEVTpNiuPhX9p2PrCmnrl6Nzq3b9f7177",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "product_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "764aa276-e48e-4287-b770-a2d0e04cc51c"
+            },
+            {
+              "key": "quantity",
+              "value": "5",
+              "type": "text",
+              "uuid": "4e3d24db-e705-4018-b089-ed7512493c09"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/cart/update",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "cart",
+            "update"
+          ],
+          "query": [
+            {
+              "key": "p",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

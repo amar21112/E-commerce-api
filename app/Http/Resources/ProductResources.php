@@ -21,6 +21,7 @@ class ProductResources extends JsonResource
             'price' =>$this->price ,
             'stock' =>$this->stock,
             'category' =>new CategoryResources($this->whenLoaded('category')),
+            'images'=>ProductImageResources::collection($this->whenLoaded('images')),
         ];
     }
 }

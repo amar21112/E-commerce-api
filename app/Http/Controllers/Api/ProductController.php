@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        return ProductResources::collection(Product::with('category')->paginate(10));
+        return ProductResources::collection(Product::with(['category','images'])->paginate(10));
     }
 
     /**
@@ -42,7 +42,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $product = $product->load('category');
+        $product = $product->load(['category','images']);
         return new ProductResources($product);
     }
 

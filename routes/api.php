@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ProductImageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\OrderController;
@@ -59,3 +60,15 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::match(['POST', 'GET'],'/payment/process', [PaymentController::class, 'paymentProcess'])->name('payment.process');
 Route::match(['GET','POST'],'/payment/callback', [PaymentController::class, 'callBack']);
+
+// Upload single image for a product
+Route::post('/products/images', [ProductImageController::class, 'upload']);
+
+// Upload multiple images for a product
+Route::post('/products/images/multiple', [ProductImageController::class, 'uploadMultiple']);
+
+// Update an image
+Route::put('/product-images', [ProductImageController::class, 'update']);
+
+// Delete an image
+Route::delete('/product-images/{productImage}', [ProductImageController::class, 'destroy']);

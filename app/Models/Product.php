@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ProductImageService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,14 @@ class Product extends Model
     ];
     public $timestamps = true;
 
+    protected static function booted()
+    {
+        static::deleting(function ($product) {
+            // Delete all images when product is deleted
+            $imageService = app(ProductImageService::class);
+            $imageService->deleteAllProductImages($product);
+        });
+    }
     public function category(){
         return $this->belongsTo(Category::class);
     }

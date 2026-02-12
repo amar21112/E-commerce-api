@@ -46,90 +46,105 @@ postman collection/
 ```bash
 git clone https://github.com/amar21112/E-commerce-api
 cd E-commerce-api
-Install dependencies:
+```
 
+2. Install dependencies:
+```bash
 composer install
-Copy environment file:
+```
 
+3. Copy environment file:
+```bash
 cp .env.example .env
-Generate app key:
-
+```
+4. Generate app key:
+```bash
 php artisan key:generate
-Configure .env:
+```
+5. Configure .env:
 
-Database credentials
+- Database credentials
 
-PayPal keys
+- PayPal keys
 
-Sanctum config
+- Sanctum config
 
-Run migrations & seeders:
-
+- Run migrations & seeders:
+```bash
 php artisan migrate --seed
-Start the server:
-
+```
+7. Start the server:
+```bash
 php artisan serve
+```
 🔐 Roles & Permissions (Spatie)
 This project uses:
-
+```bash
 spatie/laravel-permission
+```
 Example roles:
 
-Admin
+- Admin
 
-Salesman
+- Salesman
 
-User
+- User
 
 Permissions are assigned using:
-
+```bash
 $role->givePermissionTo('create product');
+```
 Middleware examples:
-
+```bash
 ->middleware(['auth:sanctum', 'role:admin'])
 ->middleware(['auth:sanctum', 'permission:edit products'])
+```
 💳 PayPal Payment Integration
 Create PayPal app (Sandbox)
 
 Set in .env:
-
+```bash
 PAYPAL_CLIENT_ID=your_client_id
 PAYPAL_SECRET=your_secret
 PAYPAL_MODE=sandbox
+```
 The API handles:
 
-Create PayPal Order
+- Create PayPal Order
 
-Capture Payment
+- Capture Payment
 
-Store Payment Status
+- Store Payment Status
 
 📮 Postman Collection
 The Postman collection is located in:
-
+```
 postmanCollections/collection_name.postman_collection.json
+```
 How to use:
-Open Postman
+1. Open Postman
 
-Click Import
+2. Click Import
 
-Upload the collection file
+3. Upload the collection file
 
 
 🧪 Testing
 Use Postman to test:
 
-Auth
+- Auth
 
-Products
+- Products
 
-Orders
+- Orders
 
-Payments
+- Payments
 
-👨‍💻 Author
-Ammar Yasser
-Backend Developer (Laravel / API)
+## 👨‍💻 Author
+
+**Ammar Yasser**
+
+**Backend Developer (Laravel / API)**
 
 ⭐ If you like this project
 Give it a ⭐ on GitHub 😄
